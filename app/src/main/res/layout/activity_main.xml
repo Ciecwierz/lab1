@@ -13,7 +13,7 @@
         android:orientation="horizontal"/>
 
     <EditText
-        android:id="@+id/editTextMesage"
+        android:id="@+id/editTextMessage"
         android:layout_width="523dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_color"
