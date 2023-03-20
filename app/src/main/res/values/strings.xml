@@ -5,4 +5,12 @@
     <string name="buttonToast">Toast</string>
     <string name="buttonRewrite">Przepisz wiadomość</string>
     <string name="textViewRewriteText">Przepisana wiadomość</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="button">Dalej</string>
+    <string name="menuText">O programie</string>
+    <string name="editTextWelcome">WITAJ</string>
+    <string name="O_programie">O programie</string>
+    <string name="AppName">BookWeb</string>
+    <string name="activity_info_label">O programie</string>
+    <string name="activity_main_label">BookWeb</string>
 </resources>

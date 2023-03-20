@@ -1,52 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="@color/white"
     android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:gravity="center_horizontal"
+        android:inputType="textPersonName"
+        android:text="@string/editTextWelcome"
+
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:orientation="horizontal"/>
+        android:orientation="horizontal" >
 
-    <EditText
-        android:id="@+id/editTextMessage"
-        android:layout_width="523dp"
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#DF1C1C"
+            app:srcCompat="@drawable/baseline_menu_book_24"
+            tools:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Czytaj książki" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_color"
-        android:hint="."
-        android:text="@string/editTextMessage" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#DF1C1C"
+            app:srcCompat="@drawable/baseline_comment_24" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="41dp"
+            android:text="Zostaw komentarz" />
+
+    </LinearLayout>
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonLog"
-
-        android:backgroundTint="@color/button_color"
-        tools:text="@string/buttonLog" />
-
-    <Button
-        android:id="@+id/buttonToast"
-        android:layout_width="191dp"
-        android:layout_height="wrap_content"
-        android:text="@string/buttonToast" />
-
-    <Button
-        android:id="@+id/buttonRewrite"
-        android:layout_width="194dp"
-        android:layout_height="wrap_content"
-        android:text="@string/buttonRewrite" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/textViewRewriteText"
-        android:id="@+id/textViewRewriteText"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0"
+        android:backgroundTint="@android:color/holo_purple"
+        android:fontFamily="monospace"
+        android:text="@string/button"
+        android:textSize="16sp" />
 
 </LinearLayout>
