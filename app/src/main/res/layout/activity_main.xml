@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background_color"
     android:orientation="vertical">
 
 
+
+
+
     <EditText
+        style="@style/MyStyle"
         android:id="@+id/editTextTextPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="5"
+        android:ems="40"
+        android:textSize="25dp"
         android:gravity="center_horizontal"
         android:inputType="textPersonName"
         android:text="@string/editTextWelcome"
@@ -23,22 +31,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="62dp"
 
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="62dp"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#DF1C1C"
-            app:srcCompat="@drawable/baseline_menu_book_24"
-            tools:visibility="visible" />
+            app:cardBackgroundColor="@color/cardView_info_color"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="@dimen/cardview_compat_inset_shadow"
+            app:cardPreventCornerOverlap="true"
+            app:contentPadding="@dimen/cardview_default_elevation">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Czytaj książki" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="120dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/ImageButtonColorbyJC"
+                app:srcCompat="@drawable/baseline_menu_book_24"
+                tools:visibility="visible" />
+
+            <TextView
+                style="@style/MyStyle"
+
+                android:layout_width="144dp"
+                android:layout_height="49dp"
+                android:gravity="center"
+                android:text="@string/czytaj_ksiazki" />
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
@@ -47,22 +70,37 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="62dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#DF1C1C"
-            app:srcCompat="@drawable/baseline_comment_24" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/cardView_info_color"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="@dimen/cardview_compat_inset_shadow"
+            app:cardPreventCornerOverlap="true"
+            app:contentPadding="@dimen/cardview_default_elevation">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="41dp"
-            android:text="Zostaw komentarz" />
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/ImageButtonColorbyJC"
+                app:srcCompat="@drawable/baseline_comment_24" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/MyStyle"
+
+                android:layout_width="142dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/zostaw_komentarz" />
+    </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
     <Button
+        style="@style/MyStyle"
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,6 +109,10 @@
         android:backgroundTint="@android:color/holo_purple"
         android:fontFamily="monospace"
         android:text="@string/button"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
+
+
+
+
 
 </LinearLayout>

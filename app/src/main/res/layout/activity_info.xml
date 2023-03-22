@@ -1,53 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".Info">
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="117dp"
-        android:layout_height="115dp"
-        app:srcCompat="@drawable/baseline_book_24"/>
 
-    <TextView
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:inputType="textPersonName"
-        android:text="BookWeb"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="20sp" />
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_color"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="206dp"
-        android:layout_height="32dp"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:inputType="textPersonName"
-        android:text="Aplikacja do komentowania książek"
-        android:textSize="10sp"/>
 
-    <TextView
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Autor: " />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="@dimen/cardview_compat_inset_shadow"
+        app:cardPreventCornerOverlap="true"
+        app:contentPadding="@dimen/cardview_default_elevation"
+        app:cardBackgroundColor="@color/cardView_info_color"
+        android:layout_height="247dp">
 
-    <TextView
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Jakub Ciećwierz" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="82dp"
+                android:layout_height="89dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/cardView_info_color"
+                app:srcCompat="@drawable/baseline_book_24" />
+
+            <TextView
+                android:id="@+id/editTextTextPersonName2"
+                style="@style/MyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="textPersonName"
+                android:text="BookWeb"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/MyStyle"
+                android:id="@+id/editTextTextPersonName3"
+                android:layout_width="341dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:ems="20"
+                android:gravity="center_horizontal"
+                android:inputType="textPersonName"
+                android:text="Aplikacja do komentowania książek"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/editTextTextPersonName4"
+                style="@style/MyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|bottom"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Autor: " />
+
+            <TextView
+                android:id="@+id/editTextTextPersonName5"
+                style="@style/MyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|bottom"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Jakub Ciećwierz" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
 </LinearLayout>

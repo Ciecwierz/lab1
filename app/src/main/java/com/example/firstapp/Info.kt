@@ -15,6 +15,6 @@ class Info : AppCompatActivity() {
 
     override fun onNavigateUp(): Boolean {
         finish()
-        true
+       return  true
     }
 }
