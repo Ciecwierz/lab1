@@ -71,3 +71,25 @@ void GEN_NOISE_InitGalois(GEN_NOISE_GaloisHandle_st * hCfg, uint32_t seed, uint3
     hCfg->value = seed;
     hCfg->length = length;
 }
+uint32_t GEN_NOISE_GetValueGalois(GEN_NOISE_GaloisHandle_st *pHandle) {
+    uint32_t lsb;
+
+    pHandle->value &= ((1 << pHandle->length)-1);
+    lsb = pHandle->value & 1;
+    pHandle->value >>=1;
+    if(lsb)
+        pHandle->value ^= pHandle->key;
+    return pHandle->value;
+}
+
+void GEN_BURST_Init(GEN_BURST_Handle_st *hCfg, GEN_Handle_st *hGen, uint16_t nCycles, float burstPeriod,
+float phaseOffset) {
+    hCfg->generator = hGen;
+    hCfg->generator->acu.phase = phaseOffset;
+    hCfg->sampleCycle = (uint32_t) (PDSP_2PI / hCfg->generator->acu.phaseStep);
+    hCfg->sampleCycle *= nCycles;
+    hCfg->sampleCycleLeft = hCfg->sampleCycle;
+    hCfg->samplePeriod = (uint32_t)(burstPeriod * CODEC_fs);
+    hCfg->samplePeriodLeft = hCfg->samplePeriod;
+    hCfg->phaseOffset = fmodf(phaseOffset, PDSP_2PI);
+}
