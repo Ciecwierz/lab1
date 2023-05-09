@@ -1,0 +1,47 @@
+#include "pdsp.h"
+#include "generator_arbitralny.h"
+
+float AWGN_generator(void);
+
+void ACU_Init(ACU_Handle_st *pHandle, ACU_Config_st *pConfig) {
+
+    pConfig ->frequency = fabsf(pConfig->frequency);
+    pConfig->frequency= (pConfig->frequency < ( CODEC_fs / 2.0f)) ? pConfig->frequency : (CODEC_fs / 2.0f);
+    pConfig->phaseOffset = (fabsf(pConfig->phaseOffset)< PDSP_2PI) ? pConfig->phaseOffset : PDSP_2PI;
+    pConfig->phaseOffset = (pConfig->phaseOffset >= 0.0f) ? pConfig->phaseOffset : (PDSP_2PI + pConfig->phaseOffset);
+    pHandle->phaseOffset = pConfig->phaseOffset;
+    pHandle->phaseStep = (pConfig->frequency * PDPS_2PI_DIV_FS);
+    pHandle->phase = -pHandle->phaseStep;
+}
+
+float ACU_GetValue(ACU_Handle_st *pHandle) {
+    float phase;
+    pHandle->phase += pHandle->phaseStep;
+    pHandle->phase = (pHandle->phase > PDSP_2PI) ? (pHandle->phase - PDSP_2PI) : pHandle->phase;
+    phase = pHandle->phase + pHandle->phaseOffset;
+    return phase;
+}
+
+float ACU_GetValueNorm(ACU_Handle_st *pHandle) {
+    float phase = ACU_GetValue(pHandle);
+    float phaseNorm = (phase/PDSP_2PI);
+    return phaseNorm;
+}
+
+uint32_t ACU_GetValueMiliDegree(ACU_Handle_st *pHandle) {
+    float phase = ACU_GetValue(pHandle);
+    uint32_t phaseDegree = (uint32_t)((phase / (180.0f / PDSP_PI)) * 1000.0f);
+    return phaseDegree;
+}
+void ACU_AddPhase(ACU_Handle_st * pHandle, float phase) {
+    pHandle->phase += phase;
+    pHandle->phase = (pHandle->phase > PDSP_2PI) ? (pHandle->phase - PDSP_2PI) : pHandle->phase;
+
+}
+
+void ACU_SetPhaseOffset(ACU_Handle_st *pHandle, float phaseOffset) {
+    pHandle->phaseOffset = (fabsf(phaseOffset)< PDSP_2PI) ? phaseOffset : PDSP_2PI;
+    pHandle->phaseOffset = (pHandle->phaseOffset >= 0.0f) ? pHandle->phaseOffset : (PDSP_2PI + pHandle->phaseOffset);
+    
+
+}
